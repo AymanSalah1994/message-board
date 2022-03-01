@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page </title>
+</head>
+<body>
+<h1>The Message Board Home Page </h1>
+{% for each_item in The_sent_context %}
+<p>{{ each_item.text }} </p>
+{% endfor %}
+</body>
+</html>
