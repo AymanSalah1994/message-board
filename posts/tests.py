@@ -25,6 +25,14 @@ class HomePageViewTest(TestCase) :
     def test_homePage_isOutThere(self):
         # All what we Need Here is To just make Sure Home page exist
         respo = self.client.get('/')
-        self.assertEqual(respo , 200)
+        self.assertEqual(respo.status_code , 200)
 
+    def test_homePage_View_isOutThere(self):
+        respo = self.client.get(reverse('home'))
+        self.assertEqual(respo.status_code , 200)
+
+    def test_homeTemplate_isUsed(self):
+        respo = self.client.get(reverse('home'))
+        self.assertEqual(respo.status_code , 200)
+        self.assertTemplateUsed(respo , 'posts/home.html')
 
